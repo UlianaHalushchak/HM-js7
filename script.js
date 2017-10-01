@@ -1,7 +1,7 @@
 
 function createValidationForm() {
 
-createForm=document.createElement("form");
+        createForm=document.createElement("form");
 	createForm.setAttribute("name","login");
 	createForm.setAttribute("action","https://www.google.com.ua");
 	document.body.appendChild(createForm);
@@ -38,6 +38,7 @@ createForm=document.createElement("form");
     itemLabelDate .setAttribute("for", createTextInputs[2]);
     itemLabelDate .innerHTML = "Enter date: ";
     createForm.insertBefore(itemLabelDate, createTextInputs[2]);
+    }
 }
 
 	
