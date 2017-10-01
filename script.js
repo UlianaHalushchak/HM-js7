@@ -40,9 +40,9 @@ function createValidationForm() {
     createForm.insertBefore(itemLabelDate, createTextInputs[2]);
     }
 }
+createValidationForm();
 
-	
-createValidationForm();	
+
 function checkAge() {
 	checkAgeEntering=document.getElementById("age").value;
 
