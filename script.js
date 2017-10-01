@@ -47,33 +47,33 @@ function checkAge() {
 	checkAgeEntering=document.getElementById("age").value;
 
 	if (checkAgeEntering === "") {
-   	    document.getElementById("age").style.border = "2px solid green";
-        alert("Please, enter number!");
+   	    document.getElementById("age").style.border = "3px solid red";
+        alert("You entered NOTHING in Age placeholder. Go ahead and enter a positive number,posible zero!");
         return false;
     }
     else if (~checkAgeEntering.indexOf(" ")) {
- 		document.getElementById("age").style.border = "2px solid green";
-        alert("You entered "+checkAgeEntering+". Enter a number,please!");
+ 		document.getElementById("age").style.border = "3px solid red";
+        alert("You entered Age with SPACE: "+checkAgeEntering+", Seriously? Enter a positive number,posible  zero!");
  		return false;
 	}
     else if(parseInt(checkAgeEntering) < 0) {
-   	    document.getElementById("age").style.border = "2px solid green";
-        alert("You entered "+checkAgeEntering+". Enter a number,please!");
+   	    document.getElementById("age").style.border = "3px solid red";
+        alert("You entered NEGATIVE Age: "+checkAgeEntering+", Seriously, ? Enter a positive number,posible  zero!");
         return false;
     }
     else if(isNaN(checkAgeEntering)) {
-    	document.getElementById("age").style.border = "2px solid green";
-    	alert("You entered "+checkAgeEntering+". Enter a number,please!");
+    	document.getElementById("age").style.border = "3px solid red";
+    	alert("You entered Age: "+checkAgeEntering+", Seriously? Enter a positive number,posible  zero!");
     	return false;
     }
     else if (~checkAgeEntering.indexOf("e")) {
- 		document.getElementById("age").style.border = "2px solid green";
-        alert("You entered "+checkAgeEntering +". Enter a number,please!");
+ 		document.getElementById("age").style.border = "3px solid red";
+        alert("You entered Age with EXPONENT: "+checkAgeEntering +", Seriously? Enter a positive number,posible zero!");
  		return false;
 	}
 
     else if(parseInt(checkAgeEntering) >= 0) {
-        document.getElementById("age").style.border = "2px solid #80ff00";
+        document.getElementById("age").style.border = "3px solid #00ff00";
 		return true;
     }
     else {
@@ -82,17 +82,32 @@ function checkAge() {
 }
 
 function checkUser() {
-	checkUserEntering=document.getElementById("name").value;
+	checkUserEntering=document.getElementById("username").value;
     userStart="user_";
     userEnter=checkUserEntering[0]+checkUserEntering[1]+checkUserEntering[2]+checkUserEntering[3]+
     checkUserEntering[4];
 
     if (checkUserEntering==="") {
-    	document.getElementById("username").style.border = "2px solid green";
-    	alert("Please enter a username starts with user_");
+    	document.getElementById("username").style.border = "3px solid red";
+    	alert("You entered NOTHING in Username placeholder. Go ahead and enter a valid username starts with user_");
         return false;
     }
-    
+    else if ((~checkUserEntering.substr(5).indexOf(" ")) && ((userEnter)===userStart)) {
+    	document.getElementById("username").style.border = "3px solid red";
+    	alert("You entered USER NAME with SPACES: "+checkUserEntering+". Enter a valid username starts with user_ and no spaces!!!");
+    	return false;
+    }
+    else if((!(~checkUserEntering.substr(5).indexOf(" ")) && ((userEnter)===userStart)) 
+    	&& (checkUserEntering.substr(5)!=="")) {
+    	document.getElementById("username").style.border = "3px solid #00ff00";
+		return true;
+    }
+    else {
+        document.getElementById("username").style.border = "3px solid red";
+    	alert("You entered INVALID USER NAME: "+checkUserEntering+". Enter a valid username without SPACES starts with user_ + your username ");
+        return false;
+    }
+}
 
 function checkDate() {
 	checkDateEntering=document.getElementById("date").value;
@@ -112,14 +127,33 @@ function checkDate() {
 	currentDate= dd+'/'+mm+'/'+yyyy;
 
 	if (checkDateEntering==="") {
-		document.getElementById("date").style.border = "2px solid green";
-    	alert("Enter a current date in format dd/mm/yyyy !");
+		document.getElementById("date").style.border = "3px solid red";
+    	alert("You entered NOTHING in Date placeholder. Go ahead and enter a valid current date in format dd/mm/yyyy !");
         return false;
 	}
 	else if(checkDateEntering===currentDate) {
-		document.getElementById("date").style.border = "2px solid #80ff00";
+		document.getElementById("date").style.border = "3px solid #00ff00";
+		return true;
+	} else {
+		document.getElementById("date").style.border = "3px solid red";
+    	alert("You entered INVALID CURRENT DATE: "+checkDateEntering+". Enter a valid current date in format dd/mm/yyyy without spaces!");
+        return false;
+	}
+}
+
+function checkInputs() {
+	
+	agech=checkAge();
+	userch=checkUser();
+	datech=checkDate();
+
+	if((agech) && (userch) && (datech)) {
+		alert("Congratulations! Form validated sucessfully!!");
 		return true;
 	}
-
-
+	else {
+        return false;
+    }
+}
+createForm.setAttribute("onsubmit","return checkInputs()");   
 
