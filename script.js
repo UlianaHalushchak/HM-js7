@@ -1,3 +1,6 @@
+
+function createValidationForm() {
+
 var x = document.getElementById("form_sample");
 var createform = document.createElement('form'); 
 createform.setAttribute("action", "https://www.google.com.ua"); 
@@ -56,6 +59,8 @@ submitelement.setAttribute("name", "submit");
 submitelement.setAttribute("value", "Validate Me");
 createform.appendChild(submitelement);
 
+	
+createValidationForm();	
 function checkAge() {
 	checkAgeEntering=document.getElementById("age").value;
 
