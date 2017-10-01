@@ -1,63 +1,44 @@
 
 function createValidationForm() {
 
-var x = document.getElementById("form_sample");
-var createform = document.createElement('form'); 
-createform.setAttribute("action", "https://www.google.com.ua"); 
-createform.setAttribute("method", "post"); 
-x.appendChild(createform);
+createForm=document.createElement("form");
+	createForm.setAttribute("name","login");
+	createForm.setAttribute("action","https://www.google.com.ua");
+	document.body.appendChild(createForm);
 
-var heading = document.createElement('h2'); 
-heading.innerHTML = "Validation Form ";
-createform.appendChild(heading);
+	createTextInputs=[];
+	for (var i = 0; i < 4; i++) {
+		createTextInputs[i]=document.createElement("input");
+		createForm.appendChild(createTextInputs[i]);
+	}
+	for (var j = 0; j < createTextInputs.length-1 ; j++) {
+		createTextInputs[j].setAttribute("type","text");
+	}
+	createTextInputs[0].setAttribute("name","age");
+	createTextInputs[0].setAttribute("id","age");
+	createTextInputs[1].setAttribute("name","username");
+	createTextInputs[1].setAttribute("id","username");
+	createTextInputs[2].setAttribute("name","date");
+	createTextInputs[2].setAttribute("id","date");
+	createTextInputs[3].setAttribute("type","submit");
+	createTextInputs[3].setAttribute("id","submit");
+	createTextInputs[3].setAttribute("value","Validate Me");
 
-var line = document.createElement('hr'); 
-createform.appendChild(line);
+    var itemLabelAge = document.createElement("Label");
+    itemLabelAge.setAttribute("for", createTextInputs[0]);
+    itemLabelAge.innerHTML = "Enter age: ";
+    createForm.insertBefore(itemLabelAge, createTextInputs[0]);
 
-var linebreak = document.createElement('br');
-createform.appendChild(linebreak);
+    var itemLabelUser = document.createElement("Label");
+    itemLabelUser.setAttribute("for", createTextInputs[1]);
+    itemLabelUser.innerHTML = "Enter user: ";
+    createForm.insertBefore(itemLabelUser, createTextInputs[1]);
 
-var namelabel = document.createElement('label'); 
-namelabel.innerHTML = "Your Name : "; 
-createform.appendChild(namelabel);
-
-var inputelement = document.createElement('input'); 
-inputelement.setAttribute("type", "text");
-inputelement.setAttribute("id", "name");
-createform.appendChild(inputelement);
-
-var linebreak = document.createElement('br');
-createform.appendChild(linebreak);
-
-var agelabel = document.createElement('label'); 
-agelabel.innerHTML = "Your age : ";
-createform.appendChild(agelabel);
-
-var agelement = document.createElement('input'); 
-agelement.setAttribute("type", "text");
-agelement.setAttribute("id", "age");
-createform.appendChild(agelement);
-
-var agebreak = document.createElement('br');
-createform.appendChild(agebreak);
-
-var datalabel = document.createElement('label'); 
-datelabel.innerHTML = "Data : ";
-createform.appendChild(datelabel);
-
-var dataelement = document.createElement('input'); 
-dateelement.setAttribute("type", "text");
-dateelement.setAttribute("id", "date");
-createform.appendChild(dataelement);
-
-var messagebreak = document.createElement('br');
-createform.appendChild(messagebreak);
-
-var submitelement = document.createElement('input'); 
-submitelement.setAttribute("type", "Submit");
-submitelement.setAttribute("name", "submit");
-submitelement.setAttribute("value", "Validate Me");
-createform.appendChild(submitelement);
+    var itemLabelDate = document.createElement("Label");
+    itemLabelDate .setAttribute("for", createTextInputs[2]);
+    itemLabelDate .innerHTML = "Enter date: ";
+    createForm.insertBefore(itemLabelDate, createTextInputs[2]);
+}
 
 	
 createValidationForm();	
