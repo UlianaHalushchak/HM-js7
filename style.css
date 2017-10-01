@@ -1,12 +1,12 @@
 
-div#main{
+#main{
 width:830px;
 height:650px;
 margin:0 auto;
 font-family:'Ubuntu',sans-serif
 }
 
-div#form_sample{
+#form_sample{
 text-align:center;
 border:1px solid #ccc;
 width:300px;
@@ -25,12 +25,12 @@ hr{
 margin-top:-5px
 }
 
-label{
+.label{
 float:left;
 font-size:16px
 }
 
-input[type="text"]{
+.input[type="text"]{
 width:100%;
 margin-top:10px;
 height:35px;
@@ -39,7 +39,7 @@ padding:10px;
 border:3px solid #2BC1F2
 }
 
-input[type="submit"]{
+.input[type="submit"]{
 width:100%;
 padding:10px 45px;
 background-color:#2BC1F2;
@@ -51,6 +51,3 @@ cursor:pointer;
 font-family:'Ubuntu',sans-serif
 }
 
-div#fugo{
-float:right
-}
