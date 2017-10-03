@@ -2,7 +2,7 @@ function createValidationForm() {
 	
 	createForm=document.createElement("form");
 	createForm.setAttribute("name","login");
-	createForm.setAttribute("action","https://www.google.com.ua");
+	createForm.setAttribute("action","google.com");
 	document.body.appendChild(createForm);
 
 	createTextInputs=[];
