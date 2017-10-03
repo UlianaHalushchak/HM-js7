@@ -44,46 +44,65 @@ function checkAge() {
 	checkAgeEntering=document.getElementById("age").value;
 
 	if (checkAgeEntering === "") {
-   	    document.getElementById("age").style.border = "3px solid red";
-        alert("Enter a number,please!");
+   	    document.getElementById("age");
+        alert("Enter a number, please!");
         return false;
     }
     else if (~checkAgeEntering.indexOf(" ")) {
- 		document.getElementById("age").style.border = "3px solid red";
-        alert("Enter your age, please!");
+ 		document.getElementById("age");
+        alert("Enter a number, please!");
  		return false;
 	}
-    
+    else if(parseInt(checkAgeEntering) < 0) {
+   	    document.getElementById("age");
+        alert("Enter a number, please!");
+        return false;
+    }
     else if(isNaN(checkAgeEntering)) {
-    	document.getElementById("age").style.border = "3px solid red";
-    	alert("Enter your age, please!");
+    	document.getElementById("age");
+    	alert("Enter a number, please!!");
     	return false;
     }
     else if (~checkAgeEntering.indexOf("e")) {
- 		document.getElementById("age").style.border = "3px solid red";
-        alert("Enter your age, please!");
+ 		document.getElementById("age");
+        alert("Enter a number, please!");
  		return false;
 	}
 
-    
+    else if(parseInt(checkAgeEntering) >= 0) {
+        document.getElementById("age");
+		return true;
+    }
+    else {
+        return false;
+    }
+}
 
 function checkUser() {
 	checkUserEntering=document.getElementById("username").value;
     userStart="user_";
-    userEnter=checkUserEntering[0]+checkUserEntering[1]+checkUserEntering[2]+checkUserEntering[3]+
-    checkUserEntering[4];
-
+    
+	
     if (checkUserEntering==="") {
-    	document.getElementById("username").style.border = "3px solid red";
-    	alert("Please, enter user_");
+    	document.getElementById("username");
+    	alert("Enter your username starts with user_");
         return false;
+    }
+    else if ((~checkUserEntering.substr(5).indexOf(" ")) && ((userEnter)===userStart)) {
+    	document.getElementById("username");
+    	alert("Enter your username starts with user_");
+    	return false;
     }
     else if((!(~checkUserEntering.substr(5).indexOf(" ")) && ((userEnter)===userStart)) 
     	&& (checkUserEntering.substr(5)!=="")) {
-    	document.getElementById("username").style.border = "3px solid #00ff00";
+    	document.getElementById("username");
 		return true;
     }
-    
+    else {
+        document.getElementById("username");
+    	alert("Enter your username starts with user_");
+        return false;
+    }
 }
 
 function checkDate() {
@@ -104,14 +123,18 @@ function checkDate() {
 	currentDate= dd+'/'+mm+'/'+yyyy;
 
 	if (checkDateEntering==="") {
-		document.getElementById("date").style.border = "3px solid red";
-    	alert("Please, enter date in format dd/mm/yyyy !");
+		document.getElementById("date");
+    	alert("Enter a valid date in format dd/mm/yyyy !");
         return false;
 	}
 	else if(checkDateEntering===currentDate) {
-		document.getElementById("date").style.border = "3px solid #00ff00";
+		document.getElementById("date");
 		return true;
-	} 
+	} else {
+		document.getElementById("date");
+    	alert("Enter a valid date in format dd/mm/yyyy");
+        return false;
+	}
 }
 
 function checkInputs() {
@@ -121,7 +144,7 @@ function checkInputs() {
 	datech=checkDate();
 
 	if((agech) && (userch) && (datech)) {
-		alert("Congratulations! Form validated sucessfully!!");
+		alert("Everything is valid!");
 		return true;
 	}
 	else {
