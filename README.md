@@ -105,6 +105,6 @@ $('.element').on('click', function(e) {
 Проблема полягає в тому, що елемент і елемент рівномірно розподіляються в DOM. Це не так, якби він стикається з елементом, а потім пузирує до контейнера, як ми бачили в останньому прикладі. Оскільки подію кліків спрацьовує як на елементі, так і на елементі одночасно, ви не можете зупинити створення, що і слід було очікувати. Тоді потрібно застосовувати stopImmediatePropagation.
 
 Additional tasks
-List of employees https://UlianaHalushchak.github.io/List-of-employees-on-the-factory
+List of employees 
 
 
