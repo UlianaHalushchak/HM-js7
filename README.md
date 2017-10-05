@@ -12,6 +12,7 @@ Task 4
  https://ulianahalushchak.github.io/Localization-task/
 
 Task 5
+
 preventDefault: Скасовує подію, якщо вона може бути скасована, не припиняючи подальшого поширення події.
 stopPropagation: запобігає подальшому поширенню поточної події.
 
